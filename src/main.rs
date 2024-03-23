@@ -1,11 +1,15 @@
 mod tenders;
 mod todo;
 
-use crate::todo::router::create_router;
+use crate::tenders::router::create_tender_router;
+use crate::todo::router::create_todo_router;
 
-use axum::http::{
-    header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
-    HeaderValue, Method,
+use axum::{
+    http::{
+        header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
+        HeaderValue, Method,
+    },
+    Router,
 };
 
 use tower_http::cors::CorsLayer;
@@ -18,7 +22,10 @@ async fn main() {
         .allow_credentials(true)
         .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE]);
 
-    let app = create_router().layer(cors);
+    let app = Router::new()
+        .nest("/todos", create_todo_router())
+        .nest("/tenders", create_tender_router())
+        .layer(cors);
 
     println!("🚀 Server started successfully");
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8000").await.unwrap();

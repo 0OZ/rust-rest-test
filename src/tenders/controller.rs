@@ -1,4 +1,4 @@
-use axum::routing::get;
+use axum::{response::IntoResponse, Json};
 
 pub async fn list_tenders() -> impl IntoResponse {
     const MESSAGE: &str = "Build Simple CRUD API in Rust using Axum";
@@ -9,8 +9,4 @@ pub async fn list_tenders() -> impl IntoResponse {
     });
 
     Json(json_response)
-}
-
-pub async fn get_list_tender() {
-    get(list_tenders)
 }
