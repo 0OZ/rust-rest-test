@@ -9,6 +9,12 @@ A simple project to explore Rust concepts.
 3. Build the project: `cargo build`
 4. Run the project: `cargo run`
 
+## Debug Server
+
+```shell
+make -f Makefile
+```
+
 ## Contributing
 
 Contributions are welcome! Please submit a PR.
