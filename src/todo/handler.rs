@@ -7,8 +7,8 @@ use axum::{
 use uuid::Uuid;
 
 use crate::{
-    model::{QueryOptions, Todo, UpdateTodoSchema, DB},
-    response::{SingleTodoResponse, TodoData, TodoListResponse},
+    todo::model::{QueryOptions, Todo, UpdateTodoSchema, DB},
+    todo::response::{SingleTodoResponse, TodoData, TodoListResponse},
 };
 
 pub async fn health_checker_handler() -> impl IntoResponse {

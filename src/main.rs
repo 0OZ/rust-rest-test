@@ -1,9 +1,7 @@
-mod handler;
-mod model;
-mod response;
-mod router;
+mod tenders;
+mod todo;
 
-use crate::router::create_router;
+use crate::todo::router::create_router;
 
 use axum::http::{
     header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},

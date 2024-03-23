@@ -1,4 +1,4 @@
-use crate::model::Todo;
+use crate::todo::model::Todo;
 use serde::Serialize;
 
 #[derive(Serialize)]
